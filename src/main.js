@@ -10,7 +10,8 @@ var savedCovers = [
 var coverImage = document.querySelector('.cover-image');
 var randomButton = document.querySelector('.random-cover-button');
 var title = document.querySelector('.cover-title');
-var subtitle = document.querySelector('.tagline');
+var subtitle1 = document.querySelector('.tagline-1');
+var subtitle2 = document.querySelector('.tagline-2');
 
 var makeYourButton = document.querySelector('.make-new-button');
 var homeViewPage = document.querySelectorAll('section')[1];
@@ -51,7 +52,8 @@ function changeTitle() {
 }
 
 function changeSubtitle() {
-  subtitle.innerText = descriptors[getRandomIndex(descriptors)];
+  subtitle1.innerText = descriptors[getRandomIndex(descriptors)];
+  subtitle2.innerText = descriptors[getRandomIndex(descriptors)];
 }
 
 function viewFormPage() {
