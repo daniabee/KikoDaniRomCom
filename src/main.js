@@ -36,6 +36,8 @@ var descriptorInput1 = document.querySelector('#descriptor1.user-desc1')
 var descriptorInput2 = document.querySelector('#descriptor2.user-desc2');
 var makeBookButton = document.querySelector('.create-new-book-button');
 
+var miniCover = document.querySelector('.mini-cover')
+
 // Add your event listeners here 👇
 randomButton.addEventListener('click', changeImage);
 randomButton.addEventListener('click', changeTitle);
@@ -82,6 +84,19 @@ function viewSavedCoversPage() {
     homeButton.className = 'home-button';
     randomButton.className = 'random-cover-button hidden';
     saveCoverButton.className = 'save-cover-button hidden';
+
+    var covers = savedCovers[0].covers
+    var title = savedCovers[0].title
+    var tagline1 = savedCovers[0].tagline1
+    var tagline2 = savedCovers[0].tagline2
+
+    miniCover.innerHTML = `
+    <img class="cover-image" src=`${savedCovers[0].covers}`>
+    <h2 class="cover-title">`${savedCovers[0].title}`</h2>
+    <h3 class="tagline">A tale of <span class="tagline-1">`${savedCovers[0].tagline1}`</span> and <span class="tagline-2">`${savedCovers[0].tagline2}`</span></h3>
+    <img class="price-tag" src="./assets/price.png">
+    <img class="overlay" src="./assets/overlay.png">
+    `
 }
 
 function viewHomePage() {
@@ -118,10 +133,11 @@ function saveData(event) {
 //WIP
 function saveCover() {
     var userMadeCover = new Cover(covers[covers.length-1], titles[titles.length-1], descriptors[descriptors.length-2], descriptors[descriptors.length-1]);
-    if(savedCovers[savedCovers.length-1].cover != userMadeCover.cover){
+    if(savedCovers[savedCovers.length-1].cover != userMadeCover.cover) {
           savedCovers.push(userMadeCover);
-    }
   }
+}
+
 
 // We've provided one function to get you started
 function getRandomIndex(array) {
