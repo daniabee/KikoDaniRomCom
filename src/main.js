@@ -6,6 +6,14 @@ var savedCovers = [
   new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
 ];
 
+//Last minute enhancement: improve saveCover() function so that it can save
+//ANY cover (including random or form)
+
+//WIP
+var currentCover;
+var currentTitle;
+var currentDescriptor1;
+var currentDestriptor2;
 
 var coverImage = document.querySelector('.cover-image');
 var randomButton = document.querySelector('.random-cover-button');
@@ -38,8 +46,11 @@ viewSavedButton.addEventListener('click',viewSavedCoversPage);//changes view to 
 
 homeButton.addEventListener('click', viewHomePage); //change view to home page
 
-makeBookButton.addEventListener('click', saveData);
+makeBookButton.addEventListener('click', saveData);//may want to rename the function saveData to generateCover
 makeBookButton.addEventListener('click', viewHomePage);
+
+//WIP
+saveCoverButton.addEventListener('click', saveCover);
 
 // Create your event handlers and other functions here 👇
 function changeImage() {
@@ -88,14 +99,27 @@ function saveData(event) {
     descriptors.push(descriptorInput1.value);
     descriptors.push(descriptorInput2.value);
 
-    var userMadeCover = [new Cover(coverInput.value, titleInput.value, descriptorInput1.value, descriptorInput2.value)];
-    coverImage.src=covers[covers.length-1];
+//probably don't want to push 93-94 to the array yet until
+//user clicks save coverbutton
+    // var userMadeCover = [new Cover(coverInput.value, titleInput.value, descriptorInput1.value, descriptorInput2.value)];
+    // savedCovers.push(userMadeCover);
+    currentCover = covers[covers.length-1];
+    currentTitle = titles[titles.length-1];
+    currentDescriptor1 = descriptors[descriptors.length-2];
+    currentDescriptor2 = descriptors[descriptors.length-1];
 
-    savedCovers.push(userMadeCover);
-
-    title.innerText = titles[titles.length-1];
-    subtitle.innerText = `${descriptors[descriptors.length-2]} ${descriptors[descriptors.length-1]}`;
+    coverImage.src= currentCover;
+    title.innerText = currentTitle;
+    subtitle.innerText = `${currentDescriptor1} ${currentDescriptor2}`;
 }
+
+//WIP
+function saveCover() {
+    var userMadeCover = new Cover(covers[covers.length-1], titles[titles.length-1], descriptors[descriptors.length-2], descriptors[descriptors.length-1]);
+    if(savedCovers[savedCovers.length-1].cover != userMadeCover.cover){
+          savedCovers.push(userMadeCover);
+    }
+  }
 
 // We've provided one function to get you started
 function getRandomIndex(array) {
