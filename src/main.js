@@ -22,13 +22,13 @@ var subtitle1 = document.querySelector('.tagline-1');
 var subtitle2 = document.querySelector('.tagline-2');
 
 var makeYourButton = document.querySelector('.make-new-button');
-var homeViewPage = document.querySelectorAll('section')[1];
-var formPage = document.querySelectorAll('section')[5];
+var homeViewPage = document.getElementById('homeViewPage')
+var formPage = document.getElementById('formPage');
 var saveCoverButton = document.querySelector('.save-cover-button');
 var homeButton = document.querySelector('.home-button');
 
 var viewSavedButton = document.querySelector('.view-saved-button')
-var savedCoversPage = document.querySelectorAll('section')[3];
+var savedCoversPage = document.getElementById('savedCoversPage')
 
 var coverInput = document.querySelector('#cover.user-cover');
 var titleInput = document.querySelector('#title.user-title');
@@ -85,18 +85,18 @@ function viewSavedCoversPage() {
     randomButton.className = 'random-cover-button hidden';
     saveCoverButton.className = 'save-cover-button hidden';
 
-    var covers = savedCovers[0].covers
-    var title = savedCovers[0].title
-    var tagline1 = savedCovers[0].tagline1
-    var tagline2 = savedCovers[0].tagline2
-
-    miniCover.innerHTML = `
-    <img class="cover-image" src=`${savedCovers[0].covers}`>
-    <h2 class="cover-title">`${savedCovers[0].title}`</h2>
-    <h3 class="tagline">A tale of <span class="tagline-1">`${savedCovers[0].tagline1}`</span> and <span class="tagline-2">`${savedCovers[0].tagline2}`</span></h3>
-    <img class="price-tag" src="./assets/price.png">
-    <img class="overlay" src="./assets/overlay.png">
-    `
+    // var covers = savedCovers[0].covers
+    // var title = savedCovers[0].title
+    // var tagline1 = savedCovers[0].tagline1
+    // var tagline2 = savedCovers[0].tagline2
+    //
+    // miniCover.innerHTML = `
+    // <img class="cover-image" src=`${savedCovers[0].covers}`>
+    // <h2 class="cover-title">`${savedCovers[0].title}`</h2>
+    // <h3 class="tagline">A tale of <span class="tagline-1">`${savedCovers[0].tagline1}`</span> and <span class="tagline-2">`${savedCovers[0].tagline2}`</span></h3>
+    // <img class="price-tag" src="./assets/price.png">
+    // <img class="overlay" src="./assets/overlay.png">
+    // `
 }
 
 function viewHomePage() {
@@ -116,10 +116,6 @@ function saveData(event) {
     descriptors.push(descriptorInput1.value);
     descriptors.push(descriptorInput2.value);
 
-//probably don't want to push 93-94 to the array yet until
-//user clicks save coverbutton
-    // var userMadeCover = [new Cover(coverInput.value, titleInput.value, descriptorInput1.value, descriptorInput2.value)];
-    // savedCovers.push(userMadeCover);
     currentCover = covers[covers.length-1];
     currentTitle = titles[titles.length-1];
     currentDescriptor1 = descriptors[descriptors.length-2];
