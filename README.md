@@ -15,7 +15,8 @@ to input your image, title, and 2 subtitles otherwise it has a random feature th
 
 ### Preview of App:
 [//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off.)
-![screenshot](romcom.png)
+<img width="1440" alt="romcom" src="https://user-images.githubusercontent.com/19957834/188330538-2fe6a062-1388-477e-a956-2d4b67fe5215.png">
+
 
 ### Context:
 [//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
@@ -24,6 +25,7 @@ We worked on this project for an estimated time of 12+ hours. We are both in Mod
 ### Contributors:
 [//]: <> (Who worked on this application? Link to their GitHubs.)
 https://github.com/daniabee
+
 https://github.com/knpausch
 
 ### Learning Goals:
