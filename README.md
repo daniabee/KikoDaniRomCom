@@ -1,41 +1,50 @@
-# RomCom
-
-A boilerplate repo. 
-
-## Set Up
-1. ONE teammate: fork this boilerplate repository 
-2. Clone down your new, forked repo
-3. cd into the repository
-4. Open it in your text editor
-5. View the project in the browser by running open index.html in your terminal
-6. Add all project partners and your assigned instructor as collaborators on the repository
-
-The project spec & rubric can be found [here](https://frontend.turing.io/projects/module-1/romcom-pair.html)
-
-______________________________________________________  
-# README Template  
-Before turning this project in, erase this line and everything above it and fill in the info below.  
-______________________________________________________  
-
 # RomCom  
 
 ### Abstract:
 [//]: <> (Briefly describe what you built and its features. What problem is the app solving? How does this application solve that problem?)
+We built a website that generates, saves, deletes romantic novel book covers. It help visualize and create unique romantic book covers. It provides a template
+to input your image, title, and 2 subtitles otherwise it has a random feature that would randomly generate one for you which you can save/delete later.
 
 ### Installation Instructions:
 [//]: <> (What steps does a person have to take to get your app cloned down and running?)
+1. Fork our repository
+1. Copy the SSH link of code
+1. Open terminal and run command: git clone <SSH link>
+1. cd to KikoDaniRomCom
+1. Run command: open index.html
 
 ### Preview of App:
 [//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off.)
+![screenshot](romcom.png)
 
 ### Context:
 [//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
+We worked on this project for an estimated time of 12+ hours. We are both in Mod1 2208FE.
 
 ### Contributors:
 [//]: <> (Who worked on this application? Link to their GitHubs.)
+https://github.com/daniabee
+https://github.com/knpausch
 
 ### Learning Goals:
 [//]: <> (What were the learning goals of this project? What tech did you work with?)
+1. Write clean DRY JavaScript
+1. Create new object instances
+1. Manipulate elements in the DOM
+1. Practice understanding HTML, CSS and JavaScript
+1. Work in a group
+1. Practice Github work flow
+
+We worked with Atom, GitHub, local terminal, browser Dev Tools, and Zoom.
 
 ### Wins + Challenges:
 [//]: <> (What are 2-3 wins you have from this project? What were some challenges you faced - and how did you get over them?)
+WINS:
+1. Finishing all iterations
+1. Great team dynamic
+1. Being able to Google and learn new topics (CSS, HTML, JavaScript methods) and implement them
+
+CHALLENGES:
+1. Being inexperienced with CSS and HTML
+1. Understanding Github flow (pulls, pushes, merges)
+1. Personal life pop up schedules
