@@ -37,6 +37,9 @@ var descriptorInput1 = document.querySelector('#descriptor1.user-desc1')
 var descriptorInput2 = document.querySelector('#descriptor2.user-desc2');
 var makeBookButton = document.querySelector('.create-new-book-button');
 
+var miniCovers = document.querySelectorAll('.mini-cover')
+var savedCoversSection = document.querySelector('.saved-covers-section');
+
 // Add your event listeners here 👇
 randomButton.addEventListener('click', changeImage);
 randomButton.addEventListener('click', changeTitle);
@@ -52,6 +55,8 @@ makeBookButton.addEventListener('click', saveData);//may want to rename the func
 makeBookButton.addEventListener('click', viewHomePage);
 
 saveCoverButton.addEventListener('click', saveCover);
+
+savedCoversSection.addEventListener('dblclick', removeCover);
 
 // Create your event handlers and other functions here 👇
 function changeImage() {
@@ -128,10 +133,23 @@ function saveData(event) {
 }
 
 function saveCover() {
-
     var userMadeCover = new Cover(coverImage.src, title.innerText, subtitle1.innerText, subtitle2.innerText);
-      if (savedCovers[savedCovers.length-1].cover != userMadeCover.cover) {
+      if (savedCovers.length === 0) {
         savedCovers.push(userMadeCover)
+      }
+      else if (savedCovers[savedCovers.length-1].cover != userMadeCover.cover) {
+        savedCovers.push(userMadeCover)
+    }
+}
+
+function removeCover(event) {
+  var miniCovers = document.querySelectorAll('.mini-cover')
+  var miniCoverId = event.target.parentElement
+  for (var i = 0; i < savedCovers.length; i++) {
+    if (savedCovers[i].id.toString() === miniCoverId.id) {
+      savedCovers.splice(i,1)
+      miniCovers[i].remove()
+    }
   }
 }
 
