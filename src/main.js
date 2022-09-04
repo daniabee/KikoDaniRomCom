@@ -1,3 +1,5 @@
+
+
 // Create variables targetting the relevant DOM elements here 👇
 
 
@@ -6,6 +8,13 @@ var savedCovers = [
   new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
 ];
 
+//Last minute enhancement: improve saveCover() function so that it can save
+//ANY cover (including random or form)
+
+var currentCover;
+var currentTitle;
+var currentDescriptor1;
+var currentDestriptor2;
 
 var coverImage = document.querySelector('.cover-image');
 var randomButton = document.querySelector('.random-cover-button');
@@ -39,8 +48,10 @@ viewSavedButton.addEventListener('click',viewSavedCoversPage);//changes view to 
 
 homeButton.addEventListener('click', viewHomePage); //change view to home page
 
-makeBookButton.addEventListener('click', saveData);
+makeBookButton.addEventListener('click', saveData);//may want to rename the function saveData to generateCover
 makeBookButton.addEventListener('click', viewHomePage);
+
+saveCoverButton.addEventListener('click', saveCover);
 
 // Create your event handlers and other functions here 👇
 function changeImage() {
@@ -54,6 +65,7 @@ function changeTitle() {
 function changeSubtitle() {
   subtitle1.innerText = descriptors[getRandomIndex(descriptors)];
   subtitle2.innerText = descriptors[getRandomIndex(descriptors)];
+  title.innerText = descriptors[getRandomIndex(descriptors)];
 }
 
 function viewFormPage() {
@@ -62,6 +74,8 @@ function viewFormPage() {
     randomButton.className = 'random-cover-button hidden';
     saveCoverButton.className = 'save-cover-button hidden';
     homeButton.className = 'home-button';
+    savedCoversPage.className = 'view saved-view hidden';
+
 }
 
 function viewSavedCoversPage() {
@@ -71,6 +85,18 @@ function viewSavedCoversPage() {
     homeButton.className = 'home-button';
     randomButton.className = 'random-cover-button hidden';
     saveCoverButton.className = 'save-cover-button hidden';
+
+    document.querySelector(".saved-covers-section").innerHTML = "";
+    for (var i = 0; i<savedCovers.length; i++){
+      document.querySelector(".saved-covers-section").innerHTML += `
+
+      <span class = "mini-cover" id = "${savedCovers[i].id}">
+      <img class = "cover-image" src = ${savedCovers[i].cover}>
+      <h2 class = "cover-title">${savedCovers[i].title}</h2>
+      <h3 class = "tagline"> A tale of ${savedCovers[i].tagline1} and ${savedCovers[i].tagline2}</h3>
+      </span>
+      `
+    }
 }
 
 function viewHomePage() {
@@ -90,13 +116,23 @@ function saveData(event) {
     descriptors.push(descriptorInput1.value);
     descriptors.push(descriptorInput2.value);
 
-    var userMadeCover = [new Cover(coverInput.value, titleInput.value, descriptorInput1.value, descriptorInput2.value)];
-    coverImage.src=covers[covers.length-1];
+    currentCover = covers[covers.length-1];
+    currentTitle = titles[titles.length-1];
+    currentDescriptor1 = descriptors[descriptors.length-2];
+    currentDescriptor2 = descriptors[descriptors.length-1];
 
-    savedCovers.push(userMadeCover);
+    coverImage.src= currentCover;
+    title.innerText = currentTitle;
+    subtitle1.innerText = `${currentDescriptor1}`;
+    subtitle2.innerText = `${currentDescriptor2}`;
+}
 
-    title.innerText = titles[titles.length-1];
-    subtitle.innerText = `${descriptors[descriptors.length-2]} ${descriptors[descriptors.length-1]}`;
+function saveCover() {
+
+    var userMadeCover = new Cover(coverImage.src, title.innerText, subtitle1.innerText, subtitle2.innerText);
+      if (savedCovers[savedCovers.length-1].cover != userMadeCover.cover) {
+        savedCovers.push(userMadeCover)
+  }
 }
 
 // We've provided one function to get you started
