@@ -14,7 +14,7 @@
       <button class="view-saved-button">View Saved Covers</button>
       <button class="make-new-button">Make Your Own Cover</button>
     </section>
-    <section class="view home-view">
+    <section class="view home-view" id="homeViewPage">
       <section class="main-cover">
         <img class="cover-image" src="./assets/prairie.jpg">
         <h2 class="cover-title">Windswept Hearts</h2>
@@ -23,11 +23,12 @@
         <img class="overlay" src="./assets/overlay.png">
       </section>
     </section>
-    <section class="view saved-view hidden">
-      <section class="mini-cover"></section>
+    <section class="view saved-view hidden" id= savedCoversPage>
+      <section class="mini-cover">
+      </section>
       <section class="saved-covers-section"></section>
     </section>
-    <section class="view form-view hidden">
+    <section class="view form-view hidden" id= formPage>
       <form>
         <label for="cover">Cover</label>
         <input class="user-cover" type="text" id="cover" />
